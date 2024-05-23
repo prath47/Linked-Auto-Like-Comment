@@ -20,7 +20,7 @@ btn.addEventListener("click", async (e) => {
   await chrome.scripting
     .executeScript({
       target: { tabId: tab.id },
-      func: temp,
+      func: ScrollDown,
       args: [len],
     })
     .then(() => console.log("script1 injected"));
@@ -50,11 +50,7 @@ btn.addEventListener("click", async (e) => {
     .then(() => console.log("script3 injected"));
 });
 
-// function hello() {
-//   console.log("hello");
-// }
-
-async function temp(len) {
+async function ScrollDown(len) {
   console.log("max len " + len);
 
   let myinterval = setInterval(() => {
